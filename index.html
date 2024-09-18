@@ -1,2 +1,48 @@
 <!DOCTYPE html>
 <html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Tester</title>
+    <style>
+        .red-button {
+            background-color: red;
+            color: white;
+            font-size: 24px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .green-button {
+            background-color: green;
+    </style>
+</head>
+<body>
+    <h1>Em's High-Tech Innovative Reaction Game</h1>
+    <button id="reactionButton" class="red-button">Press Me</button>
+    <script>
+        function changeButtonColor() {
+            const button = document.getElementById('reactionButton');
+            button.classList.add('green-button');
+            button.classList.remove('red-button');
+        }
+
+        function setRandomInterval() {
+            const randomTime = Math.floor(Math.random() * 5000);
+            setTimeout(() => {
+                changeButtonColor();
+                setRandomInterval(); // Set the next interval
+            }, randomTime);
+        }
+
+        document.getElementById('reactionButton').addEventListener('click', function() {
+            this.textContent = 'Button Pressed!';
+            this.classList.add('red-button');
+            this.classList.remove('green-button');
+        });
+
+        setRandomInterval(); // Start the first interval
+    </script>
+</body>
+</html>
