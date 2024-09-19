@@ -20,7 +20,9 @@
 </head>
 <body>
     <h1>Em's High-Tech Innovative Reaction Game</h1>
-    <button id="reactionButton" class="red-button">Press Me</button>
+    <button id="reactionButton" class="red-button">Wait</button>
+    <button id="recordButton" class="hidden">Record Results</button>
+    <button id="startButton" class="hidden">Start Again</button>
     <script>
         function changeButtonColor() {
             const button = document.getElementById('reactionButton');
@@ -29,8 +31,8 @@
         }
 
         function setRandomInterval() {
-            const randomTime = Math.floor(Math.random() * 5000);
-            setTimeout(() => {
+            const randomTime = Math.floor(Math.random() * 5000); // Random time between 0 and 5 seconds
+            intervalID = setTimeout(() => {
                 changeButtonColor();
                 setRandomInterval(); // Set the next interval
             }, randomTime);
