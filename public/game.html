@@ -27,7 +27,7 @@
             display: none;
         }
         #game{
-            display: none;
+           
         }
     </style>
 </head>
@@ -38,13 +38,6 @@
     <button id="reactionButton" class="button blue-button">Start the game?</button>
 </div>
 
-<div id="form"> 
-    <form method="post" action="/submit-name">
-        <input type="text" id="userName" name="name" placeholder="name">
-        <input type="email" id="userEmail"name="email" placeholder="email">
-        <input type="submit" id="submitButton" value="Next">
-    </form>
-</div>
 
 <div id="recentUser" class="hidden"></div>
     <h2>Most Recently Submitted User</h2>
@@ -54,28 +47,6 @@
 <script>
     let greenTime;
     let intervalId;
-
-    document.getElementById('userForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const name = document.getElementById('userName').value;
-        const email = document.getElementById('userEmail').value;
-
-        fetch('/submit-name', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: name, email: email })
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('userForm').classList.add('hidden');
-            document.getElementById('game').classList.remove('hidden');
-            document.getElementById('recentUser').classList.remove('hidden');
-            document.getElementById('userInfo').textContent = `Name: ${data[data.length - 1].Name}, Email: ${data[data.length - 1].Email}`;
-        });
-    });
 
     function startGame() {
         const button = document.getElementById('reactionButton');

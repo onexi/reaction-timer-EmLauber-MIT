@@ -28,11 +28,11 @@ app.post('/submit-name', function(req, res){
     users.push({ Name: name, Email: email });
 
     // Send the updated list of users back as JSON
-    res.json(users);
+    // res.json(users);
+     res.redirect('/game.html');
 });
 
 // Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
-// This code is similar to the previous example, but it uses the fetch API to submit the form data asynchronously.
