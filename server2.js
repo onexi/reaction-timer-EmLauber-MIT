@@ -6,11 +6,12 @@ const escape = require('escape-html');
 const app = express();
 const port = 3000;
 
-// Array to store names and emails
-let users = [];
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
+// Array to store names and emails
+let users = [];
 
 // Serve the web page with the form
 // note __dirname is the directory in which node Web Server is running 
@@ -24,7 +25,7 @@ app.post('/submit-name', function(req, res){
     const email = escape(req.body.email);
 
     // Add the new user to the array
-    users.push({ name: name, email: email });
+    users.push({ Name: name, Email: email });
 
     // Send the updated list of users back as JSON
     res.json(users);
