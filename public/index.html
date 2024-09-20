@@ -5,41 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reaction Tester</title>
     <style>
-        .red-button {
-            background-color: red;
+        .button {
+            width: 200px;
             color: white;
-            font-size: 24px;
-            padding: 20px;
+            font-size: 20px;
+            padding: 15px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
+        }
+        .red-button {
+            background-color: red;
         }
         .blue-button {
             background-color: blue;
-            color: white;
-            font-size: 24px;
-            padding: 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
         }
         .green-button {
             background-color: green;
-            color: white;
-            font-size: 24px;
-            padding: 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
         }
         .hidden {
+            display: none;
+        }
+        #game{
             display: none;
         }
     </style>
 </head>
 <body>
 <h1>Em's High-Tech Innovative Reaction Game</h1>
-<button id="reactionButton" class="blue-button">Start the game?</button>
+
+<div id="game">
+    <button id="reactionButton" class="button blue-button">Start the game?</button>
+</div>
+
+<div id="form"> 
+    <form method="post" action="/next">
+        <input type="text" name="name" placeholder="name">
+        <input type="submit" value="Next">
+    </form>
+</div>
 
 
 <script>
