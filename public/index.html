@@ -46,9 +46,14 @@
     </form>
 </div>
 
-<div id="recentUser" class="hidden"></div>
+<div id="recentUser" class="hidden"> 
     <h2>Most Recently Submitted User</h2>
     <p id="userInfo"></p>
+</div>
+
+<div id="leaderboard">
+    <h2>Past Heros</h2>
+    <p id="leaderboard"></p>
 </div>
 
 <script>
@@ -70,58 +75,11 @@
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('userForm').classList.add('hidden');
-            document.getElementById('game').classList.remove('hidden');
             document.getElementById('recentUser').classList.remove('hidden');
             document.getElementById('userInfo').textContent = `Name: ${data[data.length - 1].Name}, Email: ${data[data.length - 1].Email}`;
         });
     });
 
-    function startGame() {
-        const button = document.getElementById('reactionButton');
-        button.classList.remove('blue-button');
-        button.classList.add('red-button')
-        button.textContent = 'Wait for Green!';
-        
-    }
-
-        function changeButtonColor() {
-        const button = document.getElementById('reactionButton');
-        button.classList.remove('red-button');
-        button.classList.add('green-button')
-        button.textContent = 'Go!';
-        greenTime = new Date().getTime(); // Record the time when the button turns green
-    }
-
-    function setRandomInterval() {
-        // const randomTime = Math.floor(Math.random() * 15000); // Random time less than 15 seconds
-        const randomTime = Math.floor(Math.random() * 5000); // Random time less than 5 seconds
-
-
-        setTimeout(() => {
-            changeButtonColor();
-            setRandomInterval(); // Set the next interval TODO: figure out if / why this works
-        }, randomTime);
-     }
-
-    document.getElementById('reactionButton').addEventListener('click', function() {
-        if (this.classList.contains('blue-button')) {
-            startGame();
-            setRandomInterval(); // Start the first interval
-        }
-        if (this.classList.contains('green-button')) {
-            const reactionTime = new Date().getTime() - greenTime;
-            alert('Reaction Time: ' + reactionTime + ' ms');
-            
-        }
-        // this.textContent = 'Try Again!';
-        // this.classList.add('red-button');
-        // this.classList.remove('green-button');
-        clearTimeout(intervalId); // Stop the current interval
-    });
-    
-    // document.getElementById('reactionButton').textContent = 'Wait for Green';
-    // setRandomInterval(); // Start the first interval
 </script>
 </body>
 </html>
