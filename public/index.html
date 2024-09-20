@@ -75,8 +75,13 @@
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('recentUser').classList.remove('hidden');
-            document.getElementById('userInfo').textContent = `Name: ${data[data.length - 1].Name}, Email: ${data[data.length - 1].Email}`;
+            if (data.success) {
+                document.getElementById('userInfo').textContent = data.user;
+                window.location.href = '/game.html'; // Redirect to the game page
+            }
+           // document.getElementById('recentUser').classList.remove('hidden');
+            //document.getElementById('leaderboard').textContent = data.users;
+            
         });
     });
 

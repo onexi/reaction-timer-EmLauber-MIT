@@ -28,8 +28,12 @@ app.post('/submit-name', function(req, res){
     users.push({ Name: name, Email: email });
 
     // Send the updated list of users back as JSON
-    // res.json(users);
-     res.redirect('/game.html');
+    res.json({ success: true, users: users };
+});
+
+// Serve the game page
+app.get('/game.html', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'game.html'));
 });
 
 // Start the server
