@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
 });
 
 // Handle the form submission via fetch
-app.post('/submit-name', function(req, res){
+app.post('/submit-name', (req, res) => {
     const name = escape(req.body.name);
     const email = escape(req.body.email);
 
@@ -28,7 +28,7 @@ app.post('/submit-name', function(req, res){
     users.push({ Name: name, Email: email });
 
     // Send the updated list of users back as JSON
-    res.json({ success: true, users: users });
+    res.json({ users: users });
 });
 
 // Serve the game page
