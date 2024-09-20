@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Tester</title>
+    <style>
+        .red-button {
+            background-color: red;
+            color: white;
+            font-size: 24px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .blue-button {
+            background-color: blue;
+            color: white;
+            font-size: 24px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .green-button {
+            background-color: green;
+            color: white;
+            font-size: 24px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Em's High-Tech Innovative Reaction Game</h1>
+<button id="reactionButton" class="blue-button">Start the game?</button>
+
+
+<script>
+    let greenTime;
+    let intervalId;
+
+    function startGame() {
+        const button = document.getElementById('reactionButton');
+        button.classList.remove('blue-button');
+        button.classList.add('red-button')
+        button.textContent = 'Wait for Green!';
+    }
+
+        function changeButtonColor() {
+        const button = document.getElementById('reactionButton');
+        button.classList.remove('red-button');
+        button.classList.add('green-button')
+        button.textContent = 'Go!';
+        greenTime = new Date().getTime(); // Record the time when the button turns green
+    }
+
+    function setRandomInterval() {
+        // const randomTime = Math.floor(Math.random() * 15000); // Random time less than 15 seconds
+        const randomTime = Math.floor(Math.random() * 5000); // Random time less than 5 seconds
+
+
+        setTimeout(() => {
+        //    changeButtonColor();
+            setRandomInterval(); // Set the next interval
+        }, randomTime);
+    }
+
+    document.getElementById('reactionButton').addEventListener('click', function() {
+        if (this.classList.contains('blue-button')) {
+            startGame();
+            setRandomInterval(); // Start the first interval
+        }
+        if (this.classList.contains('green-button')) {
+            const reactionTime = new Date().getTime() - greenTime;
+            alert('Reaction Time: ' + reactionTime + ' ms');
+            
+        }
+        this.textContent = 'Try Again!';
+        this.classList.add('red-button');
+        this.classList.remove('green-button');
+        clearTimeout(intervalId); // Stop the current interval
+    });
+    
+    // document.getElementById('reactionButton').textContent = 'Wait for Green';
+    setRandomInterval(); // Start the first interval
+</script>
+</body>
+</html>
