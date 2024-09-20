@@ -51,6 +51,7 @@
         button.classList.remove('blue-button');
         button.classList.add('red-button')
         button.textContent = 'Wait for Green!';
+        
     }
 
         function changeButtonColor() {
@@ -67,10 +68,10 @@
 
 
         setTimeout(() => {
-        //    changeButtonColor();
-            setRandomInterval(); // Set the next interval
+            changeButtonColor();
+            setRandomInterval(); // Set the next interval TODO: figure out if / why this works
         }, randomTime);
-    }
+     }
 
     document.getElementById('reactionButton').addEventListener('click', function() {
         if (this.classList.contains('blue-button')) {
@@ -82,14 +83,14 @@
             alert('Reaction Time: ' + reactionTime + ' ms');
             
         }
-        this.textContent = 'Try Again!';
-        this.classList.add('red-button');
-        this.classList.remove('green-button');
+        // this.textContent = 'Try Again!';
+        // this.classList.add('red-button');
+        // this.classList.remove('green-button');
         clearTimeout(intervalId); // Stop the current interval
     });
     
     // document.getElementById('reactionButton').textContent = 'Wait for Green';
-    setRandomInterval(); // Start the first interval
+    // setRandomInterval(); // Start the first interval
 </script>
 </body>
 </html>
