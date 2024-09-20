@@ -28,7 +28,7 @@ app.post('/submit-name', function(req, res){
     users.push({ Name: name, Email: email });
 
     // Send the updated list of users back as JSON
-    res.json({ success: true, users: users };
+    res.json({ success: true, users: users });
 });
 
 // Serve the game page
@@ -36,6 +36,10 @@ app.get('/game.html', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'game.html'));
 });
 
+// Handle the request to fetch users
+app.get('/get-users', function(req, res) {
+    res.json(users);
+});
 // Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
