@@ -15,11 +15,11 @@ app.use(express.static('public'));
 // Serve the web page with the form
 // note __dirname is the directory in which node Web Server is running 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/public/index1.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // Handle the form submission via fetch
-app.post('/input', function(req, res){
+app.post('/submit-name', function(req, res){
     const name = escape(req.body.name);
     const email = escape(req.body.email);
 
