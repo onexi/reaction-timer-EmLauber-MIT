@@ -4,7 +4,7 @@
    
    // Display the welcome message
    //if (username) {
-    //   document.getElementById('welcomeMessage').innerText = `Get Ready, ${username}!`;
+   //    document.getElementById('welcomeMessage').innerText = `Get Ready, ${username}!`;
    //}
        
        let greenTime;
@@ -41,8 +41,12 @@
            if (this.classList.contains('blue-button')) {
                startGame();
                setRandomInterval(); // Start the first interval
-           }
-           if (this.classList.contains('green-button')) {
+           } else if (this.classList.contains('red-button')) {
+            // The button is red, user clicked too early - show "cheater" alert
+            alert('Cheater!');
+            window.location.href = '/'; // Redirect to the index page
+           
+        } else if (this.classList.contains('green-button')) {
             const reactionTime = new Date().getTime() - greenTime;
     
             // Get the userId from the URL or other source
