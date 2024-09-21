@@ -1,13 +1,13 @@
 /* General styles for both index.html and game.html */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Copperplate, fantasy;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f9;
+    background-color: #f8dff9;
 }
 
 .container {
@@ -36,7 +36,7 @@ input[type="text"] {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #9ac5f3;
     color: white;
     border: none;
     border-radius: 4px;
@@ -49,7 +49,7 @@ button {
 
 /* Button styles for game.html */
 #reactionButton {
-    font-size: 24px;
+    font-size: 30px;
     padding: 15px 30px;
     border-radius: 5px;
     border: none;
@@ -57,17 +57,17 @@ button {
 }
 
 .blue-button {
-    background-color: #007bff;
+    background-color: #9ac5f3;
     color: white;
 }
 
 .red-button {
-    background-color: #dc3545;
+    background-color: #f0acb3;
     color: white;
 }
 
 .green-button {
-    background-color: #28a745;
+    background-color: #b4f7c3;
     color: white;
 }
 
