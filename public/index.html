@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Em's High-Tech Innovative Reaction Game</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link the shared stylesheet -->
 </head>
 <body>
     <div class="container">
-        <h1>Reaction Game</h1>
+        <h1>Em's High-Tech Innovative Reaction Game</h1>
         <form id="nameForm">
             <input type="text" id="username" placeholder="Enter your name" required>
             <button type="submit">Submit</button>
         </form>
 
+        <!-- Leaderboard -->
+        <div class="leaderboard">
+            <!--<h2>Leaderboard</h2> -->
+            <ul id="leaderboard">
+                <!-- Leaderboard entries will be injected here -->
+            </ul>
+        </div>
     </div>
-
-    <div id="leaderboard"></div> <!-- Leaderboard section -->
     <script src="script.js"></script>
 </body>
 </html>
