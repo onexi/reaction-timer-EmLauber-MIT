@@ -36,6 +36,23 @@ app.post('/record-reaction', (req, res) => {
     res.json({ message: 'Reaction time recorded!' });
 });
 
+// Endpoint to get leaderboard data
+app.get('/leaderboard', (req, res) => {
+    // Gather all reaction times from all users
+    const leaderboard = [];
+    for (const userId in users) {
+        const { name, reactionTimes } = users[userId];
+        reactionTimes.forEach(time => {
+            leaderboard.push({ name, reactionTime: time });
+        });
+    }
+
+    // Sort by reaction time (ascending)
+    leaderboard.sort((a, b) => a.reactionTime - b.reactionTime);
+
+    res.json(leaderboard);
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

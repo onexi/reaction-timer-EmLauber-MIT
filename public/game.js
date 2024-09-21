@@ -56,7 +56,8 @@
            .then(response => response.json())
            .then(data => {
                alert(`Your reaction time was ${reactionTime} milliseconds!`);
-               // Optionally, redirect or reset the game
+               // Redirect to the index page after the alert is dismissed
+            window.location.href = '/';
            });
                
            }
