@@ -15,7 +15,7 @@ app.post('/start-game', (req, res) => {
     const userId = ++userIdCounter;
     const name = req.body.name;
     users[userId] = { name, reactionTimes: [] };
-    res.json({ userId });
+    res.json({ userId, username: name });
 });
 
 // Serve game.html
