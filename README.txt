@@ -34,7 +34,7 @@ The files are separated into different pages for user registration and game play
 2. The game page starts with a blue button asking the user if they want to start the game. 
 3. Once the user clicks on the button, it changes to red and then randomly between 1-20 seconds, it changes to green.
     a. If the user clicks while the button is red, they are alerted as a "Cheater" and redirected back to the submission page.
-b. If the user clicks while the button is green, the reaction time is saved back to the server tied to their userId. 
+    b. If the user clicks while the button is green, the reaction time is saved back to the server tied to their userId. 
 4. Once alerted with their reaction time or cheater status, the user can dismiss the alert and is redirected back to the homepage that shows the leaderboard and allows them to enter a new name to play again.
 
 ## Note
