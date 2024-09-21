@@ -26,6 +26,9 @@ function loadLeaderboard() {
             entryElement.textContent = `${index + 1}. ${entry.name}: ${entry.reactionTime} ms`;
             leaderboardContainer.appendChild(entryElement);
         });
+    })
+    .catch(error => {
+        console.error('Error loading leaderboard:', error);
     });
 }
 

@@ -30,15 +30,17 @@ app.get('/game', (req, res) => {
 
 app.post('/record-reaction', (req, res) => {
     const { userId, reactionTime } = req.body;
+    console.log('Recording reaction time for user:', userId, 'Time:', reactionTime); // Debug log
     if (users[userId]) {
         users[userId].reactionTimes.push(reactionTime);
+        console.log('Updated user data:', users[userId]); // Debug log
     }
     res.json({ message: 'Reaction time recorded!' });
 });
 
 // Endpoint to get leaderboard data
 app.get('/leaderboard', (req, res) => {
-    // Gather all reaction times from all users
+    console.log("Fetching leaderboard. Current users data:", users); // Debug log
     const leaderboard = [];
     for (const userId in users) {
         const { name, reactionTimes } = users[userId];
@@ -49,7 +51,7 @@ app.get('/leaderboard', (req, res) => {
 
     // Sort by reaction time (ascending)
     leaderboard.sort((a, b) => a.reactionTime - b.reactionTime);
-
+    console.log('Leaderboard data:', leaderboard); // Debug log
     res.json(leaderboard);
 });
 
