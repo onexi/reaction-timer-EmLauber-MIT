@@ -43,24 +43,26 @@
                setRandomInterval(); // Start the first interval
            }
            if (this.classList.contains('green-button')) {
-               const reactionTime = new Date().getTime() - greenTime;
-               //alert('Reaction Time: ' + reactionTime + ' ms');
-               
-           fetch('/record-reaction', {
-               method: 'POST',
-               headers: {
-                   'Content-Type': 'application/json'
-               },
-               body: JSON.stringify({ reactionTime })
-           })
-           .then(response => response.json())
-           .then(data => {
-               alert(`Your reaction time was ${reactionTime} milliseconds!`);
-               // Redirect to the index page after the alert is dismissed
-            window.location.href = '/';
-           });
-               
-           }
+            const reactionTime = new Date().getTime() - greenTime;
+    
+            // Get the userId from the URL or other source
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('userId'); // Extract userId from URL
+    
+            // Ensure userId and reactionTime are sent to the server
+            fetch('/record-reaction', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, reactionTime }) // Include userId in the request
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert(`Your reaction time was ${reactionTime} milliseconds!`);
+                window.location.href = '/'; // Redirect after recording the time
+            });
+        }
            
            clearTimeout(intervalId); // Stop the current interval
        });
