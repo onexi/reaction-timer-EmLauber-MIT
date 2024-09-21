@@ -43,7 +43,7 @@
                setRandomInterval(); // Start the first interval
            } else if (this.classList.contains('red-button')) {
             // The button is red, user clicked too early - show "cheater" alert
-            alert('Cheater!');
+            alert('Cheater! Try again and wait for Green this time.');
             window.location.href = '/'; // Redirect to the index page
            
         } else if (this.classList.contains('green-button')) {
